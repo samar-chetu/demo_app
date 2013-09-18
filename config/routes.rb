@@ -1,8 +1,8 @@
 DemoApp::Application.routes.draw do
-  get "static_pages/home"
-  get "static_pages/help"
-  get "static_pages/about"
-  get "static_pages/contact_us"
+  root  'static_pages#home'
+  match '/help', to: 'static_pages#help', via: 'get'
+  match '/about', to: 'static_pages#about', via: 'get'
+  match '/contact_us', to: 'static_pages#contact_us', via: 'get'
   resources :microposts
 
   resources :users
@@ -11,7 +11,7 @@ DemoApp::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'users#index'
+  # root 'users#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
